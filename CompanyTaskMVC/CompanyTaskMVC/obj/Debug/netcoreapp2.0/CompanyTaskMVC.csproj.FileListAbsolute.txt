@@ -1,0 +1,11 @@
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/bin/Debug/netcoreapp2.0/CompanyTaskMVC.deps.json
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/bin/Debug/netcoreapp2.0/CompanyTaskMVC.runtimeconfig.json
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/bin/Debug/netcoreapp2.0/CompanyTaskMVC.runtimeconfig.dev.json
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/bin/Debug/netcoreapp2.0/CompanyTaskMVC.dll
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/bin/Debug/netcoreapp2.0/CompanyTaskMVC.pdb
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/obj/Debug/netcoreapp2.0/CompanyTaskMVC.csprojResolveAssemblyReference.cache
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/obj/Debug/netcoreapp2.0/CompanyTaskMVC.csproj.CoreCompileInputs.cache
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/obj/Debug/netcoreapp2.0/CompanyTaskMVC.AssemblyInfoInputs.cache
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/obj/Debug/netcoreapp2.0/CompanyTaskMVC.AssemblyInfo.cs
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/obj/Debug/netcoreapp2.0/CompanyTaskMVC.dll
+/Users/rabinosona/Projects/CompanyTaskMVC/CompanyTaskMVC/obj/Debug/netcoreapp2.0/CompanyTaskMVC.pdb

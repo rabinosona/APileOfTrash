@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{537DA235-9D4A-4ED1-BB5C-1CB2033C1679}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CompanyTaskMVC/Views/Home/Partial.cshtml">
+    <Files>
+      <File FileName="CompanyTaskMVC/Controllers/HomeController.cs" Line="24" Column="34" />
+      <File FileName="CompanyTaskMVC/Models/MyClassModel.cs" Line="6" Column="6" />
+      <File FileName="CompanyTaskMVC/Views/Partial.cshtml" Line="8" Column="1" />
+      <File FileName="CompanyTaskMVC/OtherCode/JSONWorker.cs" Line="26" Column="43" />
+      <File FileName="CompanyTaskMVC/OtherCode/PartialSender.cs" Line="6" Column="15" />
+      <File FileName="CompanyTaskMVC/appsettings.json" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/Program.cs" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/Startup.cs" Line="45" Column="66" />
+      <File FileName="CompanyTaskMVC/Views/Home/MainPage.cshtml" Line="6" Column="2" />
+      <File FileName="CompanyTaskMVC/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/bower.json" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/bundleconfig.json" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/.bowerrc" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/Views/Home/MyClassSentHandler.js" Line="5" Column="1" />
+      <File FileName="CompanyTaskMVC/Views/Home/Partial.cshtml" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/Views/Home/sample.cshtml" Line="8" Column="54" />
+      <File FileName="CompanyTaskMVC/wwwroot/js/site.js" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/wwwroot/js/site.min.js" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/Scripts/jquery-3.2.1.min.js" Line="3" Column="50" />
+      <File FileName="CompanyTaskMVC/CompanyTaskMVC.csproj" Line="1" Column="1" />
+      <File FileName="CompanyTaskMVC/Scripts/MyClassDataHandler.js" Line="5" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CompanyTaskMVC PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,20 @@
+﻿@{
+Layout = null;
+}
+
+
+<center> <h1> Your json string is: </h1> </center>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/MyClassDataHandler.js" ></script>
+<script>
+    $.ajax({
+    type: "POST",
+    url: '@Url.Action("AjaxAnswer", "HomeController")',
+    data: null,
+    success: function(result)
+    {
+        outerFileFunction(result);
+    }
+    });
+</script>
