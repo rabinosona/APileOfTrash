@@ -1,4 +1,9 @@
-﻿function outerFileFunction(data)
+﻿var callingDoc = document.querySelector('script[data-json][data-name="json"]')
+var json = callingDoc.getAttribute('data-json')
+
+function outerFileFunction(json)
 {   
-    console.log(data)
+    alert(json)
 }
+
+outerFileFunction(json)

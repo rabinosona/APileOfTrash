@@ -13,6 +13,11 @@ namespace CompanyTaskMVC.Controllers
     {
         public IActionResult MainPage()
         {
+            JSONWorkerMyClass jsonWorker = new JSONWorkerMyClass("example string", 1);
+            string json = jsonWorker.JsonSerializedString;
+
+            ViewData["json"] = json;
+
             return View("MainPage");
         }
 
@@ -20,10 +25,7 @@ namespace CompanyTaskMVC.Controllers
         [Route("HomeController/AjaxAnswer")]
         public ActionResult AjaxAnswer()
         {
-            JSONWorkerMyClass jsonWorker = new JSONWorkerMyClass("example string", 1);
-            string json = jsonWorker.JsonSerializedString;
-
-            return Content(json);
+            return Content("");
         }
 
     }

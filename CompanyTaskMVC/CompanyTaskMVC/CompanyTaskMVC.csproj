@@ -28,8 +28,12 @@
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Home\Scripts\" />
+    <Folder Include="OtherCode\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Home\MyClassSentHandler.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="OtherCode\PartialSender.cs" />
   </ItemGroup>
 </Project>
