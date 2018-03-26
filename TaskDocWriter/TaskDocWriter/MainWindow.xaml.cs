@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using TaskDocWriter.Controllers;
+using TaskDocWriter.Constants;
+using TaskDocWriter.Models;
+using TaskDocWriter.Services;
 using TaskDocWriter.Views;
 
 namespace TaskDocWriter
@@ -22,10 +13,12 @@ namespace TaskDocWriter
     /// </summary>
     public partial class MainWindow : Window
     {
+        XMLWorkerService xmlWorker;
 
         public MainWindow()
         {
             InitializeComponent();
+            xmlWorker = new XMLWorkerService(MainAppConstants.XMLFileName);
 
             TitlePage titlePage = new TitlePage();
 

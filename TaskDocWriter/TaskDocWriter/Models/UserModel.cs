@@ -1,15 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TaskDocWriter.Models
 {
-    class UserModel
+    public class UserModel: INotifyPropertyChanged
     {
-        public string Surname { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
+        private string surname;
+        private string phone;
+        private string email;
+
+        public string Surname
+        {
+            get
+            {
+                return surname;
+            }
+            set
+            {
+                surname = value;
+                OnPropertyChanged("Surname");
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+            set
+            {
+                phone = value;
+                OnPropertyChanged("Phone");
+            }
+        }
+
+
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                email = value;
+                OnPropertyChanged("Email");
+            }
+
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
     }
 }

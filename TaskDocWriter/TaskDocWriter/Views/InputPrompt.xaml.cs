@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using TaskDocWriter.Controllers;
+using TaskDocWriter.Models;
 
 namespace TaskDocWriter.Views
 {
@@ -25,6 +26,11 @@ namespace TaskDocWriter.Views
             if (surnameBox.Text != "" && phoneBox.Text != "" && emailBox.Text != "")
             {
                 inputController.SaveUserData(surnameBox.Text, phoneBox.Text, emailBox.Text);
+
+                UserModel user = new UserModel(); user.Email = emailBox.Text; user.Phone = phoneBox.Text; user.Surname = surnameBox.Text;
+
+                UsersModelSingleton.Users.Add(user);
+
                 surnameBox.Clear();
                 phoneBox.Clear();
                 emailBox.Clear();

@@ -60,6 +60,7 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Services\DBConnectionService.cs" />
     <Compile Include="Services\XMLWorkerService.cs" />
+    <Compile Include="UsersModelSingleton.cs" />
     <Compile Include="Views\InputPrompt.xaml.cs">
       <DependentUpon>InputPrompt.xaml</DependentUpon>
     </Compile>

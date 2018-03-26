@@ -31,20 +31,14 @@ namespace TaskDocWriter.Controllers
             if (isXML)
             {
                 xmlWorker.LoadDataFromFile(MainAppConstants.XMLUserAttrName, usersList);
-                foreach (UserModel user in usersList)
-                {
-                    view.Items.Add(user);
-                }
+
+                usersList.ForEach(user => UsersModelSingleton.Users.Add(user));
+                view.ItemsSource = UsersModelSingleton.Users;
             }
             else
             {
 
             }
-        }
-
-        public void SaveFromListView(ListView view)
-        {
-
         }
     }
 }
