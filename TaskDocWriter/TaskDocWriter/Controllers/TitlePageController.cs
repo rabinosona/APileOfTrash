@@ -40,5 +40,10 @@ namespace TaskDocWriter.Controllers
 
             }
         }
+
+        public void RemoveRecording(UserModel user)
+        {
+            xmlWorker.RemoveRecordingFromFile(user);
+        }
     }
 }

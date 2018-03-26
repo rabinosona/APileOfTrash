@@ -18,6 +18,11 @@
         </Grid.RowDefinitions>
 
         <ListView x:Name="UserDataList" Grid.Row="1" HorizontalAlignment="Stretch">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="IsSelected" Value="{Binding IsGroovy}"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Фамилия" Width="640" DisplayMemberBinding="{Binding Surname }"/>
@@ -29,13 +34,13 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Foreground="Black" Width="250" Click="AddUserButtonClicked">Добавить</Button>
-            <Button Foreground="Black" Width="250" Margin="50, 0, 0, 0">Удалить</Button>
+            <Button Foreground="Black" Width="250" Margin="50, 0, 0, 0" Click="RemoveUserButtonClicked">Удалить</Button>
         </StackPanel>
         <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Width="150">Искать</Button>
-            <TextBox Width="100" Text="Фамилия" Margin="30, 0, 0, 0"></TextBox>
-            <TextBox Width="150" Text="Телефон" Margin="30, 0, 0, 0"></TextBox>
-            <TextBox Width="150" Text="E-mail" Margin="30, 0, 0, 0"></TextBox>
+            <Button Width="150" Click="SearchButtonClicked">Искать</Button>
+            <TextBox x:Name="UserSearchableSurname" Width="100" Margin="30, 0, 0, 0"></TextBox>
+            <TextBox x:Name="UserSearchablePhone" Width="150" Margin="30, 0, 0, 0"></TextBox>
+            <TextBox  x:Name="UserSearchableEmail" Width="150" Margin="30, 0, 0, 0"></TextBox>
         </StackPanel>
     </Grid>
 </Page>

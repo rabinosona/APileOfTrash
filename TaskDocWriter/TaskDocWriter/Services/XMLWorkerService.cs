@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using TaskDocWriter.Models;
 using System.Diagnostics;
 using System.Xml.Linq;
+using System.Linq;
 
 namespace TaskDocWriter.Services
 {
@@ -124,6 +125,26 @@ namespace TaskDocWriter.Services
                 new XElement("phone", addedUser.Phone),
                 new XElement("email", addedUser.Email))
                 );
+
+            xmlFileStream.SetLength(0);
+            doc.Save(xmlFileStream);
+
+            xmlFileStream.Close();
+        }
+
+        public void RemoveRecordingFromFile(UserModel removedUser)
+        {
+            ConfigureXMLStream();
+
+            XDocument doc = XDocument.Load(xmlFileStream);
+            XElement users = doc.Element("users");
+
+            users.Elements().Where(
+                x =>
+                (x.Element("surname").Value == removedUser.Surname) 
+                && (x.Element("phone").Value == removedUser.Phone) 
+                && (x.Element("email").Value == removedUser.Email))
+                .Remove();
 
             xmlFileStream.SetLength(0);
             doc.Save(xmlFileStream);
