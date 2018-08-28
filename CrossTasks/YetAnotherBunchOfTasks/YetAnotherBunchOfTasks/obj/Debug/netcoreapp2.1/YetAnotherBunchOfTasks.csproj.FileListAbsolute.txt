@@ -1,0 +1,11 @@
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/bin/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.deps.json
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/bin/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.runtimeconfig.json
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/bin/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.runtimeconfig.dev.json
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/bin/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.dll
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/bin/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.pdb
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/obj/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.csprojResolveAssemblyReference.cache
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/obj/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.csproj.CoreCompileInputs.cache
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/obj/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.AssemblyInfoInputs.cache
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/obj/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.AssemblyInfo.cs
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/obj/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.dll
+/Users/kot/Projects/YetAnotherBunchOfTasks/YetAnotherBunchOfTasks/obj/Debug/netcoreapp2.1/YetAnotherBunchOfTasks.pdb
