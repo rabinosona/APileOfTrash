@@ -65,9 +65,11 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
 
         private static void FindTriplet(string str, CancellationToken ct)
         {
-            var chunkSize = (str.Length + MaxCpuCount - 1) / MaxCpuCount;
+            var chunkSize = (int)Math.Ceiling((double)(str.Length / MaxCpuCount));
             var threadsCount = MaxCpuCount;
 
+            // while we have too many threads to process a small string (like 6 chars string and a 4 threads)
+            // we decrease their number by one until we would have a chunk size of 3 (triplets) or more
             while (chunkSize < MinimalChunkSize)
             {
                 threadsCount -= 1;
@@ -83,14 +85,16 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
                 var temp = i;
                 var tempChunk = chunkSize; // those variables are created because of clojures which capture the variables
 
-                if (tempChunk > charsLeft) { tempChunk = charsLeft; }
+                if (tempChunk > charsLeft) { tempChunk = charsLeft; } 
+                // if the chunk size is bigger than the chars that we have left in our string then the chunksize should have a size of those
+                // left symbols
 
                 _tasksForTripleting[i] = new Task(() =>
                 {
                     var from = temp * tempChunk;
                     var to = from + tempChunk;
 
-                    CheckChunk(str, from, to , ct);
+                    CheckChunk(str, from, to, ct);
                 }, ct);
 
                 _tasksForTripleting[i].Start();
@@ -104,7 +108,7 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
         private static void CheckChunk(string str, int from, int to, CancellationToken ct)
         {
             for (int i = from + 1; i < to - 1; i++)
-            { // abcabc
+            {
                 CheckTriplet(str[i - 1], str[i], str[i + 1]);
             }
         }
