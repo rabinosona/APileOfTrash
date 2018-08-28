@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
 using System.Collections.Concurrent;
+using System.Linq;
 
 namespace YetAnotherBunchOfTasks.Task1Triplets
 {
@@ -14,12 +15,12 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
     {
         static Task[] _tasksForTripleting;
         static ConcurrentDictionary<string, int> _tripletDictionary;
-
-        static object _dictLockObject;
+        static int MaxCpuCount;
 
         static TripletStringOperator()
         {
             _tripletDictionary = new ConcurrentDictionary<string, int>();
+            MaxCpuCount = Environment.ProcessorCount;
         }
 
         /// <summary>
@@ -33,46 +34,92 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
         {
             FindTriplet(str, cancellationToken);
 
-            Console.WriteLine("Tasks have been completed.");
+            var maxAmount = 0;
+            var returnableString = "";
 
-            Console.WriteLine(_tripletDictionary["abc"]);
+            // first check - to find the maximal amount of occurrences of the one triplet.
 
-            return "";
+            foreach (var pair in _tripletDictionary)
+            {
+                if (pair.Value > maxAmount)
+                {
+                    maxAmount = pair.Value;
+                }
+            }
+
+            foreach (var pair in _tripletDictionary)
+            {
+                if (pair.Value == maxAmount)
+                {
+                    returnableString += $"{pair.Key},";
+                }
+            }
+
+            returnableString.TrimEnd(',');
+            returnableString += $"\t{maxAmount}";
+
+            return returnableString;
         }
+
+        private const int MinimalChunkSize = 3;
 
         private static void FindTriplet(string str, CancellationToken ct)
         {
+            var chunkSize = (str.Length + MaxCpuCount - 1) / MaxCpuCount;
+            var threadsCount = MaxCpuCount;
 
-            int requiredAmountOfThreads = str.Length - 2; // because we need to run from 1 element of array to the last.
+            while (chunkSize < MinimalChunkSize)
+            {
+                threadsCount -= 1;
+                chunkSize = (str.Length + threadsCount - 1) / threadsCount; 
+            }
 
-            _tasksForTripleting = new Task[requiredAmountOfThreads];
+            var charsLeft = str.Length;
 
-            for (int i = 1; i < requiredAmountOfThreads + 1; i++) // est
+            _tasksForTripleting = new Task[threadsCount];
+
+            for (int i = 0; i < threadsCount; i++)
             {
                 var temp = i;
+                var tempChunk = chunkSize; // those variables are created because of clojures which capture the variables
 
-                _tasksForTripleting[temp - 1] = new Task(() =>
+                if (tempChunk > charsLeft) { tempChunk = charsLeft; }
+
+                _tasksForTripleting[i] = new Task(() =>
                 {
-                    CheckTriplet(str[temp - 1], str[temp], str[temp + 1]);
+                    var from = temp * tempChunk;
+                    var to = from + tempChunk;
+
+                    CheckChunk(str, from, to , ct);
                 }, ct);
 
-                if (ct.IsCancellationRequested) break;
-
-                _tasksForTripleting[temp - 1].Start();
+                _tasksForTripleting[i].Start();
+                charsLeft -= chunkSize;
             }
 
             Task.WaitAll(_tasksForTripleting);
+
+        }
+
+        private static void CheckChunk(string str, int from, int to, CancellationToken ct)
+        {
+            for (int i = from + 1; i < to - 1; i++)
+            { // abcabc
+                CheckTriplet(str[i - 1], str[i], str[i + 1]);
+            }
         }
 
         private static void CheckTriplet(char symbolBefore, char supportingSymbol, char symbolAfter)
         {
-
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(symbolBefore); stringBuilder.Append(supportingSymbol); stringBuilder.Append(symbolAfter);
 
+            // we should build a triplet and then check if it exists in a dictionary. if not, we should create a dictionary 
+            // pair for it with a value of 1. if it is, we should increment the value for this particular key.
+
             var temp = stringBuilder.ToString();
 
-                _tripletDictionary.AddOrUpdate(temp, 1, (tmp, occurences) => occurences + 1);
+            _tripletDictionary.AddOrUpdate(temp, 1, (tmp, occurences) => occurences + 1);
 
         }
     }

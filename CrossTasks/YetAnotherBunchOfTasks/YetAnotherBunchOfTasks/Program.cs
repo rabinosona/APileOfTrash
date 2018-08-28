@@ -12,9 +12,11 @@ namespace YetAnotherBunchOfTasks
             var cancellationTokenSource = new CancellationTokenSource();
             var cancellationToken = cancellationTokenSource.Token;
 
-            var test = "abcabcbacabcbac";
+            var test = "abcabcbacbac";
 
-            TripletStringOperator.FindMostFrequentTriplet(test, cancellationToken);
+            var x =  TripletStringOperator.FindMostFrequentTriplet(test, cancellationToken);
+
+            Console.WriteLine(x);
 
             Console.ReadLine();
         }
