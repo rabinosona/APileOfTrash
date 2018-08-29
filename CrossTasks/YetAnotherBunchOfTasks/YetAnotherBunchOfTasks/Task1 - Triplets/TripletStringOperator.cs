@@ -44,11 +44,9 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
                 if (pair.Value > maxAmount)
                 {
                     maxAmount = pair.Value;
+                    returnableString = "";
                 }
-            }
 
-            foreach (var pair in _tripletDictionary)
-            {
                 if (pair.Value == maxAmount)
                 {
                     returnableString += $"{pair.Key},";
