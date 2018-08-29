@@ -34,7 +34,7 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
         {
             FindTriplet(str, cancellationToken);
 
-            var maxAmount = 0;
+            var maxAmount = 0; // max amount of occurences of the string
             var returnableString = "";
 
             // first check - to find the maximal amount of occurrences of the one triplet.
@@ -65,16 +65,12 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
 
         private static void FindTriplet(string str, CancellationToken ct)
         {
-            var chunkSize = (int)Math.Ceiling((double)(str.Length / MaxCpuCount));
-            var threadsCount = MaxCpuCount;
+            // we need to round up the chunk size so we would be able to cover all the string
+            // example: 18 chars long, withouth rounding up we would have chunk size of 4,
+            // therefore we would be able to track only 16 chars of our string.
 
-            // while we have too many threads to process a small string (like 6 chars string and a 4 threads)
-            // we decrease their number by one until we would have a chunk size of 3 (triplets) or more
-            while (chunkSize < MinimalChunkSize)
-            {
-                threadsCount -= 1;
-                chunkSize = (str.Length + threadsCount - 1) / threadsCount; 
-            }
+            var chunkSize = (int)Math.Ceiling((double)str.Length / (double)MaxCpuCount);
+            var threadsCount = MaxCpuCount;
 
             var charsLeft = str.Length;
 
@@ -91,8 +87,8 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
 
                 _tasksForTripleting[i] = new Task(() =>
                 {
-                    var from = temp * tempChunk;
-                    var to = from + tempChunk;
+                    var from = temp * chunkSize; // using chunkSize as we never want to change it for 'from'
+                    var to = from + tempChunk; // using tempChunk so we would be able to adjust the 'to' value in edge cases
 
                     CheckChunk(str, from, to, ct);
                 }, ct);
@@ -107,7 +103,11 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
 
         private static void CheckChunk(string str, int from, int to, CancellationToken ct)
         {
-            for (int i = from + 1; i < to - 1; i++)
+            // we need to start from first symbol and end on the str.length - 1 symbol.
+            if (to == str.Length) to -= 1;
+            if (from == 0) from += 1;
+
+            for (int i = from; i < to; i++)
             {
                 CheckTriplet(str[i - 1], str[i], str[i + 1]);
             }
@@ -122,6 +122,9 @@ namespace YetAnotherBunchOfTasks.Task1Triplets
             // pair for it with a value of 1. if it is, we should increment the value for this particular key.
 
             var temp = stringBuilder.ToString();
+
+            // we use this thread-safe method to adjust our dictionary so we would add the key
+            // if it does not exist or update it if it exists.
 
             _tripletDictionary.AddOrUpdate(temp, 1, (tmp, occurences) => occurences + 1);
 
