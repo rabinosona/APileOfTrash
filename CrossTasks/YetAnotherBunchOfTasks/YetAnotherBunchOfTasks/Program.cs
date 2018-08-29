@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using YetAnotherBunchOfTasks.Task1Triplets;
+using YetAnotherBunchOfTasks.Task2___Optimal_Way;
 
 namespace YetAnotherBunchOfTasks
 {
@@ -12,14 +13,14 @@ namespace YetAnotherBunchOfTasks
             var cancellationTokenSource = new CancellationTokenSource();
             var cancellationToken = cancellationTokenSource.Token;
 
-            Console.WriteLine("Please enter the string (3+ chars long):");
-            var str = Console.ReadLine();
+            var strArr = new string[3];
 
-            if (str.Length < 3) Environment.Exit(-1);
+            for (int i = 0; i < 3; i++)
+            {
+                strArr[i] = Console.ReadLine();
+            }
 
-            var x =  TripletStringOperator.FindMostFrequentTriplet(str, cancellationToken);
-
-            Console.WriteLine(x);
+            OptimalWayLooker waySearch = new OptimalWayLooker(strArr);
 
             Console.ReadLine();
         }
