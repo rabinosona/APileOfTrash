@@ -1,0 +1,11 @@
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\bin\Debug\netcoreapp2.1\AlgorithmicThingies.deps.json
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\bin\Debug\netcoreapp2.1\AlgorithmicThingies.runtimeconfig.json
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\bin\Debug\netcoreapp2.1\AlgorithmicThingies.runtimeconfig.dev.json
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\bin\Debug\netcoreapp2.1\AlgorithmicThingies.dll
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\bin\Debug\netcoreapp2.1\AlgorithmicThingies.pdb
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\obj\Debug\netcoreapp2.1\AlgorithmicThingies.csprojAssemblyReference.cache
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\obj\Debug\netcoreapp2.1\AlgorithmicThingies.csproj.CoreCompileInputs.cache
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\obj\Debug\netcoreapp2.1\AlgorithmicThingies.AssemblyInfoInputs.cache
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\obj\Debug\netcoreapp2.1\AlgorithmicThingies.AssemblyInfo.cs
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\obj\Debug\netcoreapp2.1\AlgorithmicThingies.dll
+C:\Users\najiy\source\repos\AlgorithmicThingies\AlgorithmicThingies\obj\Debug\netcoreapp2.1\AlgorithmicThingies.pdb
