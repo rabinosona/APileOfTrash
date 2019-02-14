@@ -8,14 +8,48 @@ namespace AlgorithmicThingies
     {
         private LinkedList<T> _stackList;
 
-        //public Stack(int size)
-        //{
-        //    _stackList = new LinkedList<T>(size);
-        //}
+        public void Push(T value)
+        {
+            if (_stackList == null)
+            {
+                _stackList = new LinkedList<T>(new LinkedListItem<T>
+                {
+                    Value = value
+                });
 
-        //public void Push(T item)
-        //{
-        //    _stackList.AddItem(item);
-        //}
+                return;
+            }
+
+            _stackList.AddLast(value);
+        }
+
+        public T Pop()
+        {
+            var result = _stackList.FirstItem.Value;
+            _stackList.Remove(_stackList.FirstItem);
+
+            return result;
+        }
+
+        public T Top()
+        {
+            return _stackList.FirstItem.Value;
+        }
+    }
+
+    class StackTest
+    {
+        public void RunTest()
+        {
+            var stack = new Stack<int>();
+
+            stack.Push(3);
+            stack.Push(7);
+            stack.Push(12);
+            stack.Push(561);
+
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Top());
+        }
     }
 }

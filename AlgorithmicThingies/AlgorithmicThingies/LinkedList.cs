@@ -59,6 +59,20 @@ namespace AlgorithmicThingies
 
         private LinkedListItem<T> _firstItem;
         private LinkedListItem<T> _lastItem;
+        public LinkedListItem<T> FirstItem
+        {
+            get
+            {
+                return _firstItem;
+            }
+        }
+        public LinkedListItem<T> LastItem
+        {
+            get
+            {
+                return _lastItem;
+            }
+        }
 
         public LinkedList(LinkedListItem<T> item)
         {
@@ -155,12 +169,20 @@ namespace AlgorithmicThingies
 
         public void Remove(LinkedListItem<T> item)
         {
+            // checking the case when we have a one element left
+            if (item.PreviousItem == null && item.NextItem == null)
+            {
+                _lastItem = null; _firstItem = null;
+                return;
+            }
+            // when we're trying to remove the last element
             if (item.NextItem == null)
             {
                 item.PreviousItem.NextItem = null;
                 _lastItem = item.PreviousItem;
                 return;
             }
+            // when we're trying to remove first element
             if (item.PreviousItem == null)
             {
                 item.NextItem.PreviousItem = null;
@@ -168,6 +190,7 @@ namespace AlgorithmicThingies
                 return;
             }
 
+            // standard case
             item.PreviousItem.NextItem = item.NextItem;
             item.NextItem.PreviousItem = item.PreviousItem;
         }

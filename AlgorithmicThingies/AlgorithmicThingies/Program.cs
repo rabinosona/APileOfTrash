@@ -8,8 +8,8 @@ namespace AlgorithmicThingies
 
         static void Main(string[] args)
         {
-            var linkedTest = new LinkedListTest();
-            linkedTest.RunTest();
+            var stackTest = new StackTest();
+            stackTest.RunTest();
         }
     }
 }
