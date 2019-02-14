@@ -152,8 +152,26 @@ namespace AlgorithmicThingies
                 _lastItem = item.NextItem;
             }
         }
-    }
 
+        public void Remove(LinkedListItem<T> item)
+        {
+            if (item.NextItem == null)
+            {
+                item.PreviousItem.NextItem = null;
+                _lastItem = item.PreviousItem;
+                return;
+            }
+            if (item.PreviousItem == null)
+            {
+                item.NextItem.PreviousItem = null;
+                _firstItem = item.NextItem;
+                return;
+            }
+
+            item.PreviousItem.NextItem = item.NextItem;
+            item.NextItem.PreviousItem = item.PreviousItem;
+        }
+    }
     class LinkedListTest
     {
         public void RunTest()
@@ -168,7 +186,10 @@ namespace AlgorithmicThingies
             list.AddLast(52352);
             item = list.Find(782);
             list.AddAfter(item, 568);
+            item = list.Find(568);
+            list.Remove(item);
             list.ShowAll();
         }
     }
+
 }
