@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\najiy\\source\\repos\\AlgorithmicThingies\\AlgorithmicThingies\\AlgorithmicThingies.csproj",
+      "projectUniqueName": "C:\\Users\\najiy\\OneDrive\\Documents\\GitHub\\APileOfTrash\\AlgorithmicThingies\\AlgorithmicThingies\\AlgorithmicThingies.csproj",
       "projectName": "AlgorithmicThingies",
-      "projectPath": "C:\\Users\\najiy\\source\\repos\\AlgorithmicThingies\\AlgorithmicThingies\\AlgorithmicThingies.csproj",
+      "projectPath": "C:\\Users\\najiy\\OneDrive\\Documents\\GitHub\\APileOfTrash\\AlgorithmicThingies\\AlgorithmicThingies\\AlgorithmicThingies.csproj",
       "packagesPath": "C:\\Users\\najiy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\najiy\\source\\repos\\AlgorithmicThingies\\AlgorithmicThingies\\obj\\",
+      "outputPath": "C:\\Users\\najiy\\OneDrive\\Documents\\GitHub\\APileOfTrash\\AlgorithmicThingies\\AlgorithmicThingies\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

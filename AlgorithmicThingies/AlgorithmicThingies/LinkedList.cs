@@ -5,13 +5,13 @@ using System.Text;
 namespace AlgorithmicThingies
 {
 
-    class LinkedListItem<T>
+    public class LinkedListItem<T>
     {
         public LinkedListItem<T> NextItem { get; set; }
         public LinkedListItem<T> PreviousItem { get; set; }
         public T Value { get; set; }
 
-        public LinkedListItem<T> Append(T value)
+        public LinkedListItem<T> Append(ref T value)
         {
             NextItem = new LinkedListItem<T>
             {
@@ -53,20 +53,122 @@ namespace AlgorithmicThingies
         }
     }
 
+    public class LinkedList<T>
+    {
+        public LinkedListItem<T> CurrentItem { get; set; }
+
+        private LinkedListItem<T> _firstItem;
+        private LinkedListItem<T> _lastItem;
+
+        public LinkedList(LinkedListItem<T> item)
+        {
+            _firstItem = item;
+            _lastItem = item;
+        }
+
+        public void ShowAll()
+        {
+            var root = _firstItem;
+            var counter = 0;
+
+            while (true)
+            {
+                if (root == null)
+                    break;
+                counter++;
+
+                Console.WriteLine($"Element #{counter}");
+                if (root.Value != null)
+                    Console.WriteLine($"{root.Value}");
+                root = root.NextItem;
+            }
+        }
+
+        public void AddFirst(T value)
+        {
+            AddBefore(_firstItem, value);
+        }
+
+        public void AddLast(T value)
+        {
+            AddAfter(_lastItem, value);
+        }
+
+        public LinkedListItem<T> Find(T value)
+        {
+            var root = _firstItem;
+
+            do
+            {
+                if (root.Value.Equals(value)) return root;
+                else root = root.NextItem;
+            } while (root.NextItem != null);
+
+            return null;
+        }
+
+        public void AddBefore(LinkedListItem<T> item, T value)
+        {
+            var previousItem = new LinkedListItem<T>()
+            {
+                Value = value
+            };
+
+            previousItem.NextItem = item;
+
+            if (item.PreviousItem != null)
+            {
+                previousItem.PreviousItem = item.PreviousItem;
+
+                item.PreviousItem.NextItem = previousItem;
+                item.PreviousItem = previousItem;
+            }
+            else
+            {
+                item.PreviousItem = previousItem;
+                _firstItem = item.PreviousItem;
+            }
+        }
+
+        public void AddAfter(LinkedListItem<T> item, T value)
+        {
+            var nextItem = new LinkedListItem<T>()
+            {
+                Value = value
+            };
+
+            nextItem.PreviousItem = item;
+
+            if (item.NextItem != null)
+            {
+                nextItem.NextItem = item.NextItem;
+
+                item.NextItem.PreviousItem = nextItem;
+                item.NextItem = nextItem;
+            }
+            else
+            {
+                item.NextItem = nextItem;
+                _lastItem = item.NextItem;
+            }
+        }
+    }
+
     class LinkedListTest
     {
         public void RunTest()
         {
-            var root = new LinkedListItem<int>()
+            var list = new LinkedList<int>(new LinkedListItem<int>()
             {
                 Value = 5
-            };
-            var second = root.Append(2);
-            second.Append(3).Append(4);
-
-            root.TraverseLinkedList(root);
-            second.Remove(second);
-            root.TraverseLinkedList(root);
+            });
+            var item = list.Find(5);
+            list.AddAfter(item, 7);
+            list.AddFirst(782);
+            list.AddLast(52352);
+            item = list.Find(782);
+            list.AddAfter(item, 568);
+            list.ShowAll();
         }
     }
 }
