@@ -128,6 +128,13 @@ namespace AlgorithmicThingies
                 Value = value
             };
 
+            if (_firstItem == null && _lastItem == null)
+            {
+                _firstItem = previousItem;
+                _lastItem = previousItem;
+                return;
+            }
+
             previousItem.NextItem = item;
 
             if (item.PreviousItem != null)
@@ -150,6 +157,13 @@ namespace AlgorithmicThingies
             {
                 Value = value
             };
+
+            if (_firstItem == null && _lastItem == null)
+            {
+                _firstItem = nextItem;
+                _lastItem = nextItem;
+                return;
+            }
 
             nextItem.PreviousItem = item;
 

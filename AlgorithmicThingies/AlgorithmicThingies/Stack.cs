@@ -25,15 +25,15 @@ namespace AlgorithmicThingies
 
         public T Pop()
         {
-            var result = _stackList.FirstItem.Value;
-            _stackList.Remove(_stackList.FirstItem);
+            var result = _stackList.LastItem.Value;
+            _stackList.Remove(_stackList.LastItem);
 
             return result;
         }
 
         public T Top()
         {
-            return _stackList.FirstItem.Value;
+            return _stackList.LastItem.Value;
         }
     }
 
