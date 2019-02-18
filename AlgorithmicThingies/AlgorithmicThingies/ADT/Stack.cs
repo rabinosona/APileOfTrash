@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AlgorithmicThingies
+namespace AlgorithmicThingies.ADT
 {
     class Stack<T>
     {

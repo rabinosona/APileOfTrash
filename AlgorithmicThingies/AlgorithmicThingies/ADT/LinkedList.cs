@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AlgorithmicThingies
+namespace AlgorithmicThingies.ADT
 {
-
+    /// <summary>
+    /// Doubly Linked List.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class LinkedListItem<T>
     {
         public LinkedListItem<T> NextItem { get; set; }

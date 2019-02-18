@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AlgorithmicThingies.ADT;
+using System;
+using static AlgorithmicThingies.Search.BinarySearch;
 
 namespace AlgorithmicThingies
 {
@@ -10,9 +11,14 @@ namespace AlgorithmicThingies
         {
             var queueTest = new QueueTest();
             var stackTest = new StackTest();
+            var binarySearchTest = new BinarySearchTest();
             queueTest.RunTest();
             Console.WriteLine("STACK TEST \n ===================");
             stackTest.RunTest();
+            Console.WriteLine("BINARY SEARCH TEST \n ===================");
+            binarySearchTest.RunTest();
         }
     }
+
+
 }
