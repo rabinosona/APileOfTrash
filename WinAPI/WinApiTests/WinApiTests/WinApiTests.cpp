@@ -49,10 +49,10 @@ BOOL GetProcessesList()
 
 		GetModuleFileNameEx(hProcess, NULL, fileName, MAX_PATH);
 
+		// checking for an empty process path
 		if (!(fileName[0] == 52428))
 		{
-			printf("%d", CharCount(fileName));
-			_tprintf(TEXT("The process name is: %s and its id is %d \n"), fileName, pe32.th32ProcessID);
+			_tprintf(TEXT("The process name is: %s and its id is %d. Its parent id is: %d \n"), pe32.szExeFile, pe32.th32ProcessID, pe32.th32ParentProcessID);
 		}
 	} while (Process32Next(hProcessSnap, &pe32));
 
@@ -78,18 +78,6 @@ void printError(const wchar_t* msg)
 		(*error_ptr == '.') || (*error_ptr < 33));
 
 	_tprintf(TEXT("\n  WARNING: %s failed with error %d (%s)"), msg, err_num, error);
-}
-
-TCHAR* ExtractProcessName(const wchar_t* path, DWORD charCount)
-{
-	const wchar_t* p = (path + (charCount - 1));
-
-	do
-	{
-		
-	} while (*p != '\\');
-
-	return NULL;
 }
 
 DWORD CharCount(const wchar_t* str)
