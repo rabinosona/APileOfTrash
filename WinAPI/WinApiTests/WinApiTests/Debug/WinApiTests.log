@@ -1,3 +1,6 @@
-﻿  WinApiTests.cpp
-C:\Users\Roman\source\repos\WinApiTests\WinApiTests\WinApiTests.cpp(12): error C3861: 'GetProcessesList': identifier not found
-C:\Users\Roman\source\repos\WinApiTests\WinApiTests\WinApiTests.cpp(27): error C3861: 'printError': identifier not found
+﻿  StringOperations.cpp
+C:\Users\Roman\source\repos\WinApiTests\WinApiTests\StringOperations.cpp(3): error C2011: 'StringOperations': 'class' type redefinition
+  C:\Users\Roman\source\repos\WinApiTests\WinApiTests\StringOperations.h(5): note: see declaration of 'StringOperations'
+  WinApiTests.cpp
+C:\Users\Roman\source\repos\WinApiTests\WinApiTests\WinApiTests.cpp(26): warning C4101: 'dwPriorityClass': unreferenced local variable
+  Generating Code...
