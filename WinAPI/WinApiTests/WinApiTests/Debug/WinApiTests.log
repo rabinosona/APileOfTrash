@@ -1,0 +1,3 @@
+﻿  WinApiTests.cpp
+C:\Users\Roman\source\repos\WinApiTests\WinApiTests\WinApiTests.cpp(12): error C3861: 'GetProcessesList': identifier not found
+C:\Users\Roman\source\repos\WinApiTests\WinApiTests\WinApiTests.cpp(27): error C3861: 'printError': identifier not found
