@@ -10,11 +10,39 @@
 BOOL GetProcessesList();
 void printError(const wchar_t* msg);
 DWORD CharCount(const wchar_t* str);
+void ThreadTest();
+DWORD WINAPI ThreadContextObtain(LPVOID lpParam);
 
 int main()
 {
-	_tprintf(TEXT("Man, fuck this shit.\n"));
-	GetProcessesList( );
+	//GetProcessesList( );
+	ThreadTest();
+	return 0;
+}
+
+void ThreadTest()
+{
+	HANDLE hThread;
+	HANDLE hCurrentThread = OpenThread(THREAD_ALL_ACCESS, FALSE, GetCurrentThreadId());
+	CONTEXT ctx;
+
+	DWORD threadId;
+
+	hThread = CreateThread(NULL, 1024, ThreadContextObtain, hCurrentThread, 0, &threadId);
+	WaitForSingleObject(hThread, 5000);
+}
+
+DWORD WINAPI ThreadContextObtain(LPVOID lpParam)
+{
+	HANDLE hMainThread = (HANDLE)lpParam;
+	CONTEXT ctx;
+
+	SuspendThread(hMainThread);
+	GetThreadContext(hMainThread, &ctx);
+	ResumeThread(hMainThread);
+
+	_tprintf(_T("%d"), ctx.ExtendedRegisters);
+
 	return 0;
 }
 
@@ -22,6 +50,7 @@ BOOL GetProcessesList()
 {
 	HANDLE hProcessSnap;
 	HANDLE hProcess;
+
 	PROCESSENTRY32 pe32;
 	DWORD dwPriorityClass;
 	TCHAR fileName[530];
@@ -61,7 +90,19 @@ BOOL GetProcessesList()
 	return TRUE;
 }
 
-void printError(const wchar_t* msg) 
+DWORD CharCount(const wchar_t* str)
+{
+	int result = 0;
+	while (*str != '\0')
+	{
+		result++;
+		++str;
+	}
+
+	return result;
+}
+
+void printError(const wchar_t* msg)
 {
 	DWORD err_num;
 	TCHAR error[256];
@@ -78,16 +119,4 @@ void printError(const wchar_t* msg)
 		(*error_ptr == '.') || (*error_ptr < 33));
 
 	_tprintf(TEXT("\n  WARNING: %s failed with error %d (%s)"), msg, err_num, error);
-}
-
-DWORD CharCount(const wchar_t* str)
-{
-	int result = 0;
-	while (*str != '\0')
-	{
-		result++;
-		++str;
-	}
-
-	return result;
 }
