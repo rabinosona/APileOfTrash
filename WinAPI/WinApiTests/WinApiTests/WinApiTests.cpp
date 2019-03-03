@@ -7,6 +7,8 @@
 #include <tchar.h>
 #include "psapi.h"
 
+#define DEFAULT_THREAD_AWAIT_TIME 5000 // ms
+
 BOOL GetProcessesList();
 void printError(const wchar_t* msg);
 DWORD CharCount(const wchar_t* str);
@@ -24,12 +26,11 @@ void ThreadTest()
 {
 	HANDLE hThread;
 	HANDLE hCurrentThread = OpenThread(THREAD_ALL_ACCESS, FALSE, GetCurrentThreadId());
-	CONTEXT ctx;
 
 	DWORD threadId;
 
 	hThread = CreateThread(NULL, 1024, ThreadContextObtain, hCurrentThread, 0, &threadId);
-	WaitForSingleObject(hThread, 5000);
+	WaitForSingleObject(hThread, DEFAULT_THREAD_AWAIT_TIME);
 }
 
 DWORD WINAPI ThreadContextObtain(LPVOID lpParam)
