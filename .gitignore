@@ -9,3 +9,7 @@
 *.pdb
 *.tlog
 *.pdb
+*.db
+*.opendb
+*.log
+*.obj
