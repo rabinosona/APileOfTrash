@@ -37,15 +37,15 @@ For each robot position/instruction in the input, the output should indicate the
 4. In the future we'll have multiple I/O methods and multiple ways of controlling our robots and grids.
 
 ### Sample Input
-> 5 3
-> 1 1 E
-> RFRFRFRF
-> 3 2 N
-> FRRFLLFFRRFLL
-> 03 W
-> LLFFFLFLFL
+    5 3
+    1 1 E
+    RFRFRFRF
+    3 2 N
+    FRRFLLFFRRFLL
+    03 W
+    LLFFFLFLFL
 
 ### Sample Output
-> 11 E
-> 3 3 N LOST
-> 2 3 S
+    11 E
+    3 3 N LOST
+    2 3 S
