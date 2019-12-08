@@ -1,0 +1,142 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotProblem.Tests\\RobotProblem.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotProblem.Tests\\RobotProblem.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotProblem.Tests\\RobotProblem.Tests.csproj",
+        "projectName": "RobotProblem.Tests",
+        "projectPath": "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotProblem.Tests\\RobotProblem.Tests.csproj",
+        "packagesPath": "C:\\Users\\najiy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotProblem.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\najiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotsProblem\\RobotsProblem.csproj": {
+                "projectPath": "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotsProblem\\RobotsProblem.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.2.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotsProblem\\RobotsProblem.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotsProblem\\RobotsProblem.csproj",
+        "projectName": "RobotsProblem",
+        "projectPath": "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotsProblem\\RobotsProblem.csproj",
+        "packagesPath": "C:\\Users\\najiy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\najiy\\source\\repos\\RobotsProblem\\RobotsProblem\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\najiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.CodeAnalysis.FxCopAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.9.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
