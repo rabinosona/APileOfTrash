@@ -38,14 +38,14 @@ For each robot position/instruction in the input, the output should indicate the
 
 ### Sample Input
 > 5 3
-1 1 E
-RFRFRFRF
-3 2 N
-FRRFLLFFRRFLL
-03 W
-LLFFFLFLFL
+> 1 1 E
+> RFRFRFRF
+> 3 2 N
+> FRRFLLFFRRFLL
+> 03 W
+> LLFFFLFLFL
 
 ### Sample Output
 > 11 E
-3 3 N LOST
-2 3 S
+> 3 3 N LOST
+> 2 3 S
