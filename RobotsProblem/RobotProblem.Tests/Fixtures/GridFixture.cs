@@ -21,7 +21,7 @@ namespace RobotsProblemTest.Fixtures
         {
             GridOperator = new GridOperator();
             Grid = new Grid(DefinedGridSize, GridOperator);
-            RobotOperator = new RobotOperator(Grid);
+            RobotOperator = new RobotOperator();
         }
     }
 }

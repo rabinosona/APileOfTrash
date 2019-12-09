@@ -35,7 +35,6 @@ namespace RobotsProblem.Operators
 
         private void CheckBoundaryCrossing(List<List<GridCellInfo>> gridData, GridConstraints constraints, (int, int) newCoordinates)
         {
-
             var (newX, newY) = newCoordinates;
 
             // processing out of bounds case

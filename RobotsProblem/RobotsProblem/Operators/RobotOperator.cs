@@ -4,23 +4,8 @@ using RobotsProblem.Exceptions;
 
 namespace RobotsProblem.Operators
 {
-    class RobotOperator : AbstractCharacterOperator, IRobotOperator
+    class RobotOperator : IRobotOperator
     {
-        public RobotOperator(IGrid grid) : base(grid)
-        {
-
-        }
-
-        /// <summary>
-        /// Add robot to the map, notify grid about new robot on a field.
-        /// </summary>
-        /// <param name="position"></param>
-        public void AddRobot(GridPosition position)
-        {
-            AssignNewPosition(position);
-            Notify();
-        }
-
         /// <summary>
         /// Move in selected direction, notify grid about robot movement.
         /// </summary>
@@ -32,30 +17,11 @@ namespace RobotsProblem.Operators
         {
             var movements = ComputeMovement(step, orientation);
 
-            var newPosition = new GridPosition
+            return new GridPosition
             {
                 X = position.X + movements.Item1,
                 Y = position.Y + movements.Item2
             };
-
-            try
-            {
-                AssignNewPosition(newPosition);
-
-                Notify();
-            }
-            catch (RobotMovedIntoOccupiedCellException)
-            {
-                return position;
-            }
-            catch (RobotOutOfBoundsException)
-            {
-                PerformPositionCleanup();
-
-                throw;
-            }
-
-            return newPosition;
         }
 
         /// <summary>

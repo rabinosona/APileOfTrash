@@ -18,11 +18,5 @@ namespace RobotsProblem.Operators
         /// </summary>
         /// <param name="degree"></param>
         Orientation TurnRobot(Orientation orientation, RotationDegree degree);
-
-        /// <summary>
-        /// Put robot on a map.
-        /// </summary>
-        /// <param name="position"></param>
-        void AddRobot(GridPosition position);
     }
 }

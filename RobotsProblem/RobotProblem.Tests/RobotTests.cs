@@ -20,7 +20,7 @@ namespace RobotsProblemTest
 
             GridFixture.InitializeFixture();
 
-            var robot = new Robot(GridFixture.RobotOperator, (0, 0), Orientation.East);
+            var robot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (0, 0), Orientation.East);
 
             for (var i = 0; i < GridFixture.DefinedGridSize.Item1; i++)
             {
@@ -62,7 +62,7 @@ namespace RobotsProblemTest
         [ExpectedException(typeof(RobotOutOfBoundsException))]
         public void CheckThatRobotDestroyedOnBoundaryCrossTest()
         {
-            var robot = new Robot(GridFixture.RobotOperator, (1, 1), Orientation.East);
+            var robot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (1, 1), Orientation.East);
 
             for (var i = 0; i < 5; i++)
             {
@@ -73,7 +73,7 @@ namespace RobotsProblemTest
         [TestMethod]
         public void CheckThatRobotDoesNotListenToCommandsAfterItsLostTest()
         {
-            var robot = new Robot(GridFixture.RobotOperator, (2, 1), Orientation.East);
+            var robot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (2, 1), Orientation.East);
 
             try
             {
@@ -94,7 +94,7 @@ namespace RobotsProblemTest
         [TestMethod]
         public void RunToOpposeDirectionWhereAlreadyHasBeenTest()
         {
-            var robot = new Robot(GridFixture.RobotOperator, (2, 2), Orientation.East);
+            var robot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (2, 2), Orientation.East);
 
             robot.MoveForward();
 
@@ -110,7 +110,7 @@ namespace RobotsProblemTest
         [TestMethod]
         public void RunCircleInsideBorderTest()
         {
-            var robot = new Robot(GridFixture.RobotOperator, (3, 3), Orientation.East);
+            var robot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (3, 3), Orientation.East);
 
             for (int i = 0; i < 4; i++)
             {
@@ -128,19 +128,25 @@ namespace RobotsProblemTest
         [ExpectedException(typeof(RobotMovedIntoOccupiedCellException))]
         public void TryToCreateTwoRobotsOnSamePlace()
         {
-            var robot = new Robot(GridFixture.RobotOperator, (4, 3), Orientation.East);
+            var robot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (4, 3), Orientation.East);
 
-            var secondRobot = new Robot(GridFixture.RobotOperator, (4, 3), Orientation.West);
+            var secondRobot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (4, 3), Orientation.West);
         }
 
         [TestMethod]
         public void TwoRobotsCollide()
         {
-            var robot = new Robot(GridFixture.RobotOperator, (2, 3), Orientation.East);
-            var secondRobot = new Robot(GridFixture.RobotOperator, (3, 3), Orientation.West);
+            var robot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (1, 2), Orientation.East);
+            var secondRobot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (1, 3), Orientation.East);
 
             try
             {
+                secondRobot.MoveForward();
+                secondRobot.TurnRight();
+                secondRobot.TurnRight();
+                secondRobot.MoveForward();
+
+                robot.MoveForward();
                 robot.MoveForward();
             }
             catch (RobotMovedIntoOccupiedCellException)
@@ -152,7 +158,7 @@ namespace RobotsProblemTest
         [TestMethod]
         public void TryToMoveRobotOutOfBoundariesAfterOtherRobotHasBeenMovedOutThroughSameBoundary()
         {
-            var robot = new Robot(GridFixture.RobotOperator, (2, 1), Orientation.East);
+            var robot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (2, 1), Orientation.East);
 
             try
             {
@@ -163,7 +169,7 @@ namespace RobotsProblemTest
             }
             catch (RobotOutOfBoundsException)
             {
-                var newRobot = new Robot(GridFixture.RobotOperator, (2, 1), Orientation.East);
+                var newRobot = new Robot(GridFixture.RobotOperator, GridFixture.Grid, (2, 1), Orientation.East);
 
                 for (var i = 0; i < 5; i++)
                 {

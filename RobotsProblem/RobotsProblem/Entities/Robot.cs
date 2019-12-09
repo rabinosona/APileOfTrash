@@ -1,59 +1,14 @@
 ﻿using RobotsProblem.Entities.Enums;
 using RobotsProblem.Exceptions;
 using RobotsProblem.Operators;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RobotsProblem.Entities
 {
-    // Didn't implement ICharacter interface in this particular case
-    // As the task didn't specify any types of characters except simple robots.
-
-    class Robot
+    class Robot : Character
     {
         private readonly IRobotOperator _robotOperator;
 
-        private Orientation _orientation;
-
-        /// <summary>
-        /// The current position of the robot.
-        /// </summary>
-        public GridPosition CurrentPosition { get; set; }
-
-        public bool IsLost { get; set; }
-
-        public Orientation CurrentOrientation
-        {
-            get
-            {
-                return _orientation;
-            }
-            set
-            {
-                // checking orientation overflow
-
-                if (value > Orientation.West)
-                {
-                    // take part starting after 0 degrees
-                    _orientation = (Orientation)((int)value % Constants.OrientationSides);
-                    return;
-                }
-
-                if (value < Orientation.North)
-                {
-                    // works like a previous west check, but
-                    // subtracts negative angle from 360 in
-                    // order to achieve positive angle.
-                    _orientation = (Orientation)(Constants.OrientationSides + (int)value % Constants.OrientationSides);
-                    return;
-                }
-
-                _orientation = value;
-            }
-        }
-
-        public Robot(IRobotOperator robotOperator, (int, int) defaultPosition, Orientation defaultOrientation)
+        public Robot(IRobotOperator robotOperator, IGrid grid, (int, int) defaultPosition, Orientation defaultOrientation) : base(grid)
         {
             _robotOperator = robotOperator;
 
@@ -63,9 +18,12 @@ namespace RobotsProblem.Entities
                 Y = defaultPosition.Item2
             };
 
-            CurrentOrientation = defaultOrientation;
+            if (CurrentPosition == null)
+            {
+                throw new RobotMovedIntoOccupiedCellException();
+            }
 
-            _robotOperator.AddRobot(CurrentPosition);
+            CurrentOrientation = defaultOrientation;
         }
 
         public void MoveForward()

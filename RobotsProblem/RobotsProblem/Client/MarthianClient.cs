@@ -75,7 +75,7 @@ namespace RobotsProblem.Client
                     _robots.Add(
                             new RobotWithCommandSequence
                             {
-                                Robot = new Robot(_robotOperator, (robotInfo.X, robotInfo.Y), PickOrientationByCharacter(robotInfo.Orientation)),
+                                Robot = new Robot(_robotOperator, _grid, (robotInfo.X, robotInfo.Y), PickOrientationByCharacter(robotInfo.Orientation)),
                                 CommandSequence = robotsCommands[i]
                             });
                 }
@@ -143,7 +143,7 @@ namespace RobotsProblem.Client
 
             _gridOperator = new GridOperator();
             _grid = new Grid(gridCoordinates, _gridOperator);
-            _robotOperator = new RobotOperator(_grid);
+            _robotOperator = new RobotOperator();
         }
 
         private Orientation PickOrientationByCharacter(string character)
